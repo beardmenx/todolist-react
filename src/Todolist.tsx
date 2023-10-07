@@ -32,7 +32,7 @@ export const Todolist = (props: PropsType) => {
 
   const onKeyDownHandler = (e: KeyboardEvent<HTMLInputElement>) => {
     setError(null);
-    if (e.keyCode === 13) {
+    if (e.key === "Enter") {
       props.addTask(title.trim(), props.id);
       setTitle("");
     }
