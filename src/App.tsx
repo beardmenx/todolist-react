@@ -4,14 +4,12 @@ import { TaskType, Todolist } from "./Todolist";
 import { v1 } from "uuid";
 import { AddItemsForm } from "./AddItemForm";
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Container, Grid, Paper } from "@mui/material";
-import { Padding } from "@mui/icons-material";
 
 export type FilterValuesType = "all" | "active" | "completed";
 
@@ -153,15 +151,11 @@ function App() {
             let tasksForTodolist = tasksObj[tl.id];
 
             if (tl.filter === "completed") {
-              tasksForTodolist = tasksForTodolist.filter(
-                (t) => t.isDone === true
-              );
+              tasksForTodolist = tasksForTodolist.filter((t) => t.isDone);
             }
 
             if (tl.filter === "active") {
-              tasksForTodolist = tasksForTodolist.filter(
-                (t) => t.isDone === false
-              );
+              tasksForTodolist = tasksForTodolist.filter((t) => !t.isDone);
             }
 
             return (
